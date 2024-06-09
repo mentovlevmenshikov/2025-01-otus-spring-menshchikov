@@ -40,7 +40,7 @@ public class CsvQuestionDao implements QuestionDao {
 
     private List<QuestionDto> parseTestFile(InputStream inputStream) throws IOException {
         try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
-            CsvToBean csvToBean =  new CsvToBeanBuilder<QuestionDto>(reader)
+            CsvToBean<QuestionDto> csvToBean =  new CsvToBeanBuilder<QuestionDto>(reader)
                     .withType(QuestionDto.class)
                     .withSeparator(';')
                     .withSkipLines(1)
@@ -50,9 +50,8 @@ public class CsvQuestionDao implements QuestionDao {
     }
 
     private List<Question>  mapDtoToDao(List<QuestionDto> questionDtos) {
-        List<Question> questions = questionDtos.stream()
+        return questionDtos.stream()
                 .map(QuestionDto::toDomainObject)
                 .collect(Collectors.toList());
-        return questions;
     }
 }

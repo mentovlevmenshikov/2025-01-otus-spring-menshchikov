@@ -33,6 +33,7 @@ public class TestServiceImpl implements TestService {
     private void pringQuestions(List<Question> questions) {
         if (questions == null || questions.isEmpty()) {
             ioService.printLine("Qustions missing");
+            return;
         }
 
         for (Question question : questions) {
