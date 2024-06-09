@@ -3,7 +3,6 @@ package ru.otus.hw;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.otus.hw.config.AppProperties;
-import ru.otus.hw.exceptions.QuestionReadException;
 import ru.otus.hw.service.TestRunnerService;
 
 public class Application {

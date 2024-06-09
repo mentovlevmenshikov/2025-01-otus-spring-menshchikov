@@ -12,6 +12,7 @@ import java.util.List;
 public class TestServiceImpl implements TestService {
 
     private final IOService ioService;
+
     private final QuestionDao questionDao;
 
     @Override
@@ -24,6 +25,8 @@ public class TestServiceImpl implements TestService {
             pringQuestions(questions);
         } catch (QuestionReadException e) {
             ioService.printLine(e.getMessage());
+        } catch (Exception e) {
+            ioService.printLine("Something went wrong.");
         }
     }
 
@@ -42,7 +45,7 @@ public class TestServiceImpl implements TestService {
 
             ioService.printFormattedLine("Сhoose answers:");
             for (Answer answer : question.answers()) {
-                ioService.printFormattedLine("\t%s%s", answer.text(), answer.isCorrect() ? "*" :"");
+                ioService.printFormattedLine("\t%s%s", answer.text(), answer.isCorrect() ? "*" : "");
             }
             ioService.printLine("");
         }
