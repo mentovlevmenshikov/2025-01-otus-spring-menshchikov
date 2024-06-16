@@ -1,6 +1,7 @@
 target/
 *.class
 *.mvn
+dependency-reduced-pom.xml
 
 ### STS ###
 .apt_generated
