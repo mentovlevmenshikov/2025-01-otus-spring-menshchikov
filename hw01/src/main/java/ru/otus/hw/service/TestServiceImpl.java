@@ -20,9 +20,13 @@ public class TestServiceImpl implements TestService {
         ioService.printLine("");
         ioService.printFormattedLine("Please answer the questions below%n");
         // Получить вопросы из дао и вывести их с вариантами ответов
+        getAndPrintTests();
+    }
+
+    private void  getAndPrintTests() {
         try {
             List<Question> questions = questionDao.findAll();
-            pringQuestions(questions);
+            printQuestions(questions);
         } catch (QuestionReadException e) {
             ioService.printLine(e.getMessage());
         } catch (Exception e) {
@@ -30,7 +34,7 @@ public class TestServiceImpl implements TestService {
         }
     }
 
-    private void pringQuestions(List<Question> questions) {
+    private void printQuestions(List<Question> questions) {
         if (questions == null || questions.isEmpty()) {
             ioService.printLine("Qustions missing");
             return;
