@@ -17,6 +17,7 @@ dependency-reduced-pom.xml
 *.iws
 *.iml
 *.ipr
+.gigaide
 
 ### NetBeans ###
 /nbproject/private/
