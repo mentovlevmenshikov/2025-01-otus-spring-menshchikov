@@ -1,6 +1,5 @@
 package ru.otus.hw.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +25,7 @@ class TestServiceImplTest {
     void verifyOneCallFindAll() {
         TestService testService = new TestServiceImpl(ioService, questionDao);
         Student student = Mockito.mock(Student.class);
-        TestResult result = testService.executeTestFor(student);
+        testService.executeTestFor(student);
         Mockito.verify(questionDao, Mockito.times(1))
                 .findAll();
     }
